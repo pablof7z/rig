@@ -6,6 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.37.0](https://github.com/0xPlaygrounds/rig/compare/rig-core-v0.36.0...rig-core-v0.37.0) - 2026-05-06
+
+### Added
+
+- *(memory)* Rig-managed conversation memory + rig-memory companion crate ([#1702](https://github.com/0xPlaygrounds/rig/pull/1702)) (by @ForeverAngry)
+- add copilot model listing ([#1700](https://github.com/0xPlaygrounds/rig/pull/1700)) (by @BigtoC) - #1700
+
+### Fixed
+
+- *(core)* [**breaking**] make Chat append messages to caller history ([#1733](https://github.com/0xPlaygrounds/rig/pull/1733)) (by @gold-silver-copper)
+- added a trailing newline after streamed agent response. The AgentImpl::request method streams tokens using print! macro with no trailing newline, so when the stream ends, the run loop prints the closing separator immediately which causes it to appear on the same line as the last response token - So added a println!() to the None arm of the streaming loop so a newline is always emitted after the final chunk which matches the ChatImpl path that uses println. ([#1712](https://github.com/0xPlaygrounds/rig/pull/1712)) (by @Shaurya-Sethi) - #1712
+- *(mistral)* expose cached and audio token fields in Usage ([#1725](https://github.com/0xPlaygrounds/rig/pull/1725)) (by @byQuexo)
+
+### Other
+
+- bump dependencies ([#1728](https://github.com/0xPlaygrounds/rig/pull/1728)) (by @gold-silver-copper) - #1728
+- Add a support of structured output for OpenRouter ([#1718](https://github.com/0xPlaygrounds/rig/pull/1718)) (by @Mnwa) - #1718
+- set doctest to true, and update doc comments ([#1716](https://github.com/0xPlaygrounds/rig/pull/1716)) (by @gold-silver-copper) - #1716
+- AGENTS.MD, CONTRIBUTING.MD, and docs ([#1714](https://github.com/0xPlaygrounds/rig/pull/1714)) (by @gold-silver-copper) - #1714
+- improve project organization and create rig crate ([#1699](https://github.com/0xPlaygrounds/rig/pull/1699)) (by @gold-silver-copper) - #1699
+
+### Contributors
+
+* @gold-silver-copper
+* @ForeverAngry
+* @BigtoC
+* @Shaurya-Sethi
+* @Mnwa
+* @byQuexo
 
 ### Added
 
